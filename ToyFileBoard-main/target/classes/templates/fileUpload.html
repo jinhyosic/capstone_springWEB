@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>File Storage Upload</title>
+    <link href="/css/fileUpload.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <nav class="nav-wrapper" style="background-color: #76b852;">
+
+        <a href="#" data-activates="mobile-demo" class="button-collapse">
+            <i class="material-icons">menu</i>
+        </a>
+
+        <ul class="left" style="margin-left: 20px">
+            Rasberry NAS Storage
+        </ul>
+
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/file/upload">File Upload</a></li>
+            <li><a href="/file/listAll">File List</a></li>
+            <li><a href="/member/logout">Logout</a></li>
+        </ul>
+
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/file/upload">File Upload</a></li>
+            <li><a href="/file/listAll">File List</a></li>
+            <li><a href="/member/logout">Logout</a></li>
+        </ul>
+
+    </nav>
+
+    <form action="/file/upload" method="post" enctype="multipart/form-data">
+        <h5 style="text-align: center; color: white">File Upload</h5>
+        <input type="file" multiple="multiple" name="files">
+        <p style="text-align: center;">Drag your files here or click in this area.</p>
+        <button type="submit">Upload</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/fileUpload.js"></script>
+
+</body>
+</html>

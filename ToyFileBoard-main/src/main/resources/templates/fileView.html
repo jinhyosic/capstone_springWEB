@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>File Storage</title>
+    <link href="/css/fileView.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <nav class="nav-wrapper" style="background-color: #76b852;">
+
+        <a href="#" data-activates="mobile-demo" class="button-collapse">
+            <i class="material-icons">menu</i>
+        </a>
+
+        <ul class="left" style="margin-left: 20px">
+            Rasberry NAS Storage
+        </ul>
+
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/file/upload">File Upload</a></li>
+            <li><a href="/file/listAll">File List</a></li>
+            <li><a href="/member/logout">Logout</a></li>
+        </ul>
+
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/file/upload">File Upload</a></li>
+            <li><a href="/file/listAll">File List</a></li>
+            <li><a href="/member/logout">Logout</a></li>
+        </ul>
+
+    </nav>
+
+    <div class="container">
+        <div style="width: 1000px;">
+            <div class="card shadow-2dp" th:each="imageFile : ${all} " style="width: 200px; display: inline-block;">
+                <div id="pic-container">
+                    <img  th:src="|/file/image/${imageFile.id}|" style="display: block; width: 100%; height: 100%" onerror="this.src='/img/noimage.jpg'">
+                </div>
+                <div id="caption">
+                    <p id="title" th:text="${imageFile.name}"></p>
+                    <p id="description" th:text="${imageFile.orgNm}"></p>
+                    <div style="text-align: center;">
+                        <a th:href="|/file/attach/${imageFile.id}|" th:text="download" style="font-size: 15px;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/fileView.js"></script>
+
+</body>
+</html>

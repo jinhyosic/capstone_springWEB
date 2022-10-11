@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>File Storage Login</title>
+    <link href="/css/loginForm.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" action="/member/login" method="post">
+                <input type="text" name="username" placeholder="username"/>
+                <input type="password" name="password" placeholder="password"/>
+                <button type="submit">login</button>
+                <p class="message">Not registered? <a href="/member/signup">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
